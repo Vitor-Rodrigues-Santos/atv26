@@ -6,13 +6,6 @@ A simulação foi construída e testada integralmente na plataforma **Tinkercad*
 
 ---
 
-## 👥 Integrantes do Grupo
-* **Vitor Rodrigues Santos**
-* **Thiago Marcelino Vieira**
-* **Riquelme Reis Santos**
-
----
-
 ## 📝 Cenário / Situação-Problema
 Uma construtora ampliou um prédio comercial de 3 para 6 andares. Fomos contratados para modernizar o sistema do elevador utilizando Arduino. O novo sistema precisava garantir o correto funcionamento das chamadas, indicação visual do andar atual e o deslocamento lógico e temporizado entre todos os andares.
 
@@ -46,3 +39,10 @@ Para transformar o projeto original de 3 andares em um sistema funcional de 6 an
     * Se `andarSolicitado > andarAtual`, o sistema executa uma rotina de subida, acendendo os LEDs sequencialmente em ordem crescente com um tempo de espera (`delay`).
     * Se `andarSolicitado < andarAtual`, o sistema executa a rotina de descida de forma decrescente.
 4.  **Máquina de Estados:** Ao final do percurso, a variável `andarAtual` recebe o valor do `andarSolicitado`, travando o elevador no andar correto até a próxima chamada.
+
+---
+
+## 👥 Integrantes do Grupo
+* **Vitor Rodrigues Santos**
+* **Thiago Marcelino Vieira**
+* **Riquelme Reis Santos**
