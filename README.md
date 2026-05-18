@@ -31,14 +31,15 @@ Uma construtora ampliou um prédio comercial de 3 para 6 andares. Fomos contrata
 ---
 
 ## 🧠 Explicação da Lógica de Expansão
+
 Para transformar o projeto original de 3 andares em um sistema funcional de 6 andares, escalamos o código e o circuito seguindo os seguintes passos:
 
-1.  **Mapeamento de Hardware:** Declaramos mais 3 pinos de entrada (para os novos botões) e mais 3 pinos de saída (para os novos LEDs) no código, organizando a pinagem do Arduino de forma sequencial.
-2.  **Leitura de Entradas:** Criamos uma estrutura de varredura que verifica constantemente o estado dos 6 botões.
-3.  **Algoritmo de Movimentação (Subida/Descida):** * Utilizamos estruturas condicionais (`if/else`) combinadas com loops (`for` ou `while`) para comparar a variável `andarAtual` com o `andarSolicitado`.
-    * Se `andarSolicitado > andarAtual`, o sistema executa uma rotina de subida, acendendo os LEDs sequencialmente em ordem crescente com um tempo de espera (`delay`).
-    * Se `andarSolicitado < andarAtual`, o sistema executa a rotina de descida de forma decrescente.
-4.  **Máquina de Estados:** Ao final do percurso, a variável `andarAtual` recebe o valor do `andarSolicitado`, travando o elevador no andar correto até a próxima chamada.
+1. **Mapeamento de Hardware:** Declaramos mais 3 pinos de entrada (para os novos botões `bot4`, `bot5` e `bot6`) e mais 3 pinos de saída (para os novos LEDs `led4`, `led5` e `led6`) no código, organizando a pinagem do Arduino de forma sequencial.
+2. **Leitura de Entradas:** Criamos uma estrutura de varredura que verifica constantemente o estado dos 6 botões. Quando um botão é pressionado, a variável `andar` recebe o número do andar correspondente.
+3. **Algoritmo de Movimentação (Subida/Descida):** * Utilizamos a estrutura de seleção `switch (andar)` para direcionar as ações baseadas no andar solicitado.
+   * Dentro de cada caso (`case`), usamos estruturas condicionais `if` para comparar a variável `atual` (onde o elevador está) com o objetivo.
+   * A transição é feita acendendo e apagando os LEDs intermediários sequencialmente com um tempo de espera (`delay`), simulando o movimento de subida ou descida.
+4. **Máquina de Estados e Reset:** Ao final do percurso de cada `case`, a variável `atual` recebe o valor do novo andar onde o elevador chegou e a variável `andar` é resetada para `0`, mantendo o sistema estático e pronto para a próxima chamada.
 
 ---
 
